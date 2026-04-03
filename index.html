@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Trio Cafe &amp; Kandingan | Pototan, Iloilo</title>
+  <meta name="description" content="El Trio Cafe & Kandingan in Pototan, Iloilo serving hearty local favorites, grilled specialties, and cafe classics.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    :root {
+      --primary: #f59e0b;
+      --primary-dark: #d97706;
+      --dark: #212529;
+      --light: #f8f9fa;
+      --muted: #6c757d;
+      --surface: #fffaf1;
+      --shadow: 0 18px 45px rgba(33, 37, 41, 0.12);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      color: var(--dark);
+      background:
+        radial-gradient(circle at top left, rgba(245, 158, 11, 0.12), transparent 32%),
+        linear-gradient(180deg, #fffdf8 0%, #fff8ea 100%);
+      overflow-x: hidden;
+    }
+
+    section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .navbar {
+      background: rgba(33, 37, 41, 0.82);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      transition: background 0.3s ease, padding 0.3s ease;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff !important;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-logo {
+      width: 52px;
+      height: 52px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-link {
+      color: rgba(255, 255, 255, 0.85) !important;
+      font-weight: 500;
+      transition: color 0.25s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary) !important;
+    }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 140px 0 100px;
+      background-image: url("images/eltrio");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center 24%;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: auto auto 10% -5%;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.3), transparent 70%);
+      filter: blur(5px);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 12%;
+      right: -6%;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.18), transparent 68%);
+      filter: blur(12px);
+    }
+
+    .hero-content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem;
+      background: linear-gradient(180deg, rgba(33, 37, 41, 0.26), rgba(33, 37, 41, 0.08));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 32px;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #fff9ec;
+      font-size: 0.92rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5.2vw, 4.6rem);
+      line-height: 1.02;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 1.25rem;
+      text-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 246, 221, 0.9));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
+    }
+
+    .btn-brand {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.9rem 1.5rem;
+      border-radius: 999px;
+      font-weight: 600;
+      box-shadow: 0 14px 32px rgba(245, 158, 11, 0.32);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .btn-brand:hover {
+      background: var(--primary-dark);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 18px 34px rgba(217, 119, 6, 0.35);
+    }
+
+    .btn-outline-light-soft {
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      color: #fff;
+      background: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(12px);
+      padding: 0.9rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .btn-outline-light-soft:hover {
+      color: var(--dark);
+      background: #fff;
+      border-color: #fff;
+    }
+
+    .accent-text {
+      color: var(--primary);
+    }
+
+    .about-card,
+    .contact-card {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .about-image {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      object-fit: cover;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+    }
+
+    .feature-pill {
+      display: inline-flex;
+      align-items: center;
+      margin: 0.35rem 0.35rem 0 0;
+      padding: 0.7rem 1rem;
+      background: rgba(245, 158, 11, 0.12);
+      color: var(--dark);
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    .menu-section {
+      background:
+        radial-gradient(circle at right top, rgba(245, 158, 11, 0.15), transparent 28%),
+        linear-gradient(180deg, rgba(255, 250, 241, 0.6) 0%, rgba(255, 255, 255, 0.95) 100%);
+    }
+
+    .menu-card,
+    .gallery-card {
+      height: 100%;
+      border: none;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 18px 40px rgba(33, 37, 41, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .menu-card:hover,
+    .gallery-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 50px rgba(33, 37, 41, 0.14);
+    }
+
+    .menu-image-wrapper,
+    .gallery-image-wrapper {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .menu-image-wrapper::after,
+    .gallery-image-wrapper::after {
+      content: "View";
+      position: absolute;
+      inset: auto 1rem 1rem auto;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(33, 37, 41, 0.78);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .menu-card:hover .menu-image-wrapper::after,
+    .gallery-card:hover .gallery-image-wrapper::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .menu-card img,
+    .gallery-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+
+    .menu-card:hover img,
+    .gallery-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .menu-card .card-body {
+      padding: 1.25rem 1.2rem 1.4rem;
+    }
+
+    .menu-card .card-title,
+    .gallery-card .card-title {
+      margin-bottom: 0;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .gallery-card img {
+      height: 320px;
+    }
+
+    .contact-card {
+      padding: 2.5rem;
+      background:
+        linear-gradient(135deg, rgba(33, 37, 41, 0.98), rgba(33, 37, 41, 0.88)),
+        url("images/hero.jpg") center/cover no-repeat;
+      color: #fff;
+    }
+
+    .feedback-section {
+      background:
+        radial-gradient(circle at top left, rgba(245, 158, 11, 0.12), transparent 28%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 248, 235, 0.92) 100%);
+    }
+
+    .feedback-card {
+      height: 100%;
+      padding: 2rem;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 18px 40px rgba(33, 37, 41, 0.08);
+    }
+
+    .feedback-quote {
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: #495057;
+      margin-bottom: 1.5rem;
+    }
+
+    .feedback-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .feedback-name {
+      margin-bottom: 0.2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .feedback-role {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .feedback-stars {
+      color: var(--primary);
+      letter-spacing: 0.14em;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.4rem;
+    }
+
+    .contact-icon {
+      width: 46px;
+      height: 46px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(245, 158, 11, 0.18);
+      color: var(--primary);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .footer {
+      background: #16191c;
+      color: rgba(255, 255, 255, 0.7);
+      padding: 28px 0;
+    }
+
+    .footer strong {
+      color: #fff;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .lightbox-modal .modal-content {
+      background: transparent;
+      border: none;
+    }
+
+    .lightbox-modal .modal-body {
+      position: relative;
+      padding: 0;
+      text-align: center;
+    }
+
+    .lightbox-modal .btn-close {
+      position: absolute;
+      top: -1rem;
+      right: -1rem;
+      z-index: 3;
+      background-color: #fff;
+      border-radius: 999px;
+      opacity: 1;
+      padding: 0.8rem;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
+    }
+
+    .lightbox-image {
+      width: 100%;
+      max-height: 78vh;
+      object-fit: contain;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      background: #fff;
+    }
+
+    .lightbox-caption {
+      color: #fff;
+      text-align: center;
+      margin-top: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 991.98px) {
+      section {
+        padding: 84px 0;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 120px;
+        background-position: center 20%;
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+
+    }
+
+    @media (max-width: 767.98px) {
+      .navbar-brand span:last-child {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 11vw, 3rem);
+        line-height: 1.04;
+      }
+
+      .hero {
+        background-position: 54% 18%;
+      }
+
+      .hero-content {
+        padding: 2rem 1rem;
+        border-radius: 24px;
+      }
+
+      .about-image {
+        min-height: 280px;
+      }
+
+      .gallery-card img {
+        height: 260px;
+      }
+
+      .contact-card {
+        padding: 2rem 1.4rem;
+      }
+
+      .feedback-card {
+        padding: 1.5rem;
+      }
+
+      .lightbox-modal .btn-close {
+        top: 0.75rem;
+        right: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3">
+    <div class="container">
+      <a class="navbar-brand" href="#home">
+        <img src="images/logo.jpg" alt="El Trio Cafe & Kandingan logo" class="brand-logo">
+        <span>El Trio Cafe &amp; Kandingan</span>
+      </a>
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#feedback">Feedback</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="container position-relative">
+      <div class="row justify-content-center">
+        <div class="col-lg-9 text-center fade-in">
+          <div class="hero-content">
+            <div class="hero-badge">Pototan, Iloilo • Premium comfort food experience</div>
+            <h1>Look no further than our restaurant, where a world of flavors awaits you!</h1>
+            <p class="mx-auto">El Trio Cafe &amp; Kandingan brings together cafe comfort, Filipino favorites, and crowd-pleasing specialties in one warm, modern dining destination.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+              <a href="#menu" class="btn btn-brand">Explore Our Menu</a>
+              <a href="#contact" class="btn btn-outline-light-soft">Visit Us Today</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <div class="row align-items-center g-4 g-lg-5">
+        <div class="col-lg-6 fade-in">
+          <div class="about-card h-100">
+            <img src="images/about.jpg" alt="Dining atmosphere at El Trio Cafe & Kandingan" class="about-image lightbox-trigger" data-fallback-src="images/hero.jpg" data-lightbox-title="El Trio Cafe &amp; Kandingan">
+          </div>
+        </div>
+        <div class="col-lg-6 fade-in">
+          <div class="ps-lg-3">
+            <div class="eyebrow">About El Trio</div>
+            <h2 class="section-title">A relaxed cafe made for sharing good food and great company.</h2>
+            <p class="text-secondary mb-4">From sizzling favorites to hearty classics, El Trio Cafe &amp; Kandingan serves dishes that feel festive, flavorful, and familiar. Every plate is prepared to bring people together, whether you are dining with family, catching up with friends, or celebrating a special moment.</p>
+            <p class="text-secondary mb-4">Our space pairs a premium restaurant mood with approachable warmth, giving Pototan guests a place to linger, indulge, and come back for another round of favorites.</p>
+            <div>
+              <span class="feature-pill">Freshly prepared specialties</span>
+              <span class="feature-pill">Comfortable dine-in atmosphere</span>
+              <span class="feature-pill">Perfect for groups and gatherings</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu" class="menu-section">
+    <div class="container">
+      <div class="text-center mb-5 fade-in">
+        <div class="eyebrow">Featured Menu</div>
+        <h2 class="section-title">Crave-worthy dishes, served with style.</h2>
+        <p class="section-subtitle">A curated lineup of best sellers, grilled favorites, and signature comfort food made to satisfy every table.</p>
+      </div>
+      <div class="row g-4" id="menuGrid"></div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="container">
+      <div class="text-center mb-5 fade-in">
+        <div class="eyebrow">Gallery</div>
+        <h2 class="section-title">A closer look at the El Trio experience.</h2>
+        <p class="section-subtitle">Tap any photo to view it in full and get a feel for the flavors and atmosphere waiting for you in Pototan.</p>
+      </div>
+      <div class="row g-4" id="galleryGrid"></div>
+    </div>
+  </section>
+
+  <section id="feedback" class="feedback-section">
+    <div class="container">
+      <div class="text-center mb-5 fade-in">
+        <div class="eyebrow">Customer Feedback</div>
+        <h2 class="section-title">What guests love about El Trio.</h2>
+        <p class="section-subtitle">From family meals to group celebrations, our diners keep coming back for the warm atmosphere, generous servings, and memorable food.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-xl-4 fade-in">
+          <article class="feedback-card">
+            <p class="feedback-quote">“Visited for the first time with my childhood friends and I can say the place is cozy and comfortable. Their pork sisig goes really well with San Mig Lights. The only drawback was the early closing time, but overall this is a good place to have some food and drinks when in Pototan.”</p>
+            <div class="feedback-meta">
+              <div>
+                <h3 class="feedback-name">Lubin Lamzon</h3>
+                <p class="feedback-role">Recommended El Trio Cafe &amp; Kandingan</p>
+              </div>
+              <div class="feedback-stars">★★★★★</div>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-xl-4 fade-in">
+          <article class="feedback-card">
+            <p class="feedback-quote">“The employees were very approachable and friendly, the food tasted good, the place was clean, and even the restroom was clean. The price feels right for the food and good ambiance, and I also loved the minty coffee. Child-friendly too.”</p>
+            <div class="feedback-meta">
+              <div>
+                <h3 class="feedback-name">Aubrey Marie Tamayo Montenegro</h3>
+                <p class="feedback-role">Recommended El Trio Cafe &amp; Kandingan</p>
+              </div>
+              <div class="feedback-stars">★★★★★</div>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-xl-4 fade-in">
+          <article class="feedback-card">
+            <p class="feedback-quote">“This is my first time to visit. The ambiance is good and the food is good too. I gladly give this place five stars, and I will visit again with my partner soon.”</p>
+            <div class="feedback-meta">
+              <div>
+                <h3 class="feedback-name">Mark John Raymundo Bulatao</h3>
+                <p class="feedback-role">Recommended El Trio Cafe &amp; Kandingan</p>
+              </div>
+              <div class="feedback-stars">★★★★★</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-card fade-in">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <div class="eyebrow text-warning">Visit El Trio</div>
+            <h2 class="section-title text-white">Join us for your next casual feast in Pototan, Iloilo.</h2>
+            <p class="text-white-50 mb-4">Planning your next meal out? We are ready to serve flavorful dishes, grilled specialties, and satisfying cafe favorites in a warm, welcoming space.</p>
+            <div class="contact-item">
+              <div class="contact-icon">A</div>
+              <div>
+                <h3 class="h6 mb-1 text-white">Address</h3>
+                <p class="mb-0 text-white-50">Tirador Ave, Pototan, 5000 Iloilo, Philippines</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">P</div>
+              <div>
+                <h3 class="h6 mb-1 text-white">Phone</h3>
+                <p class="mb-0 text-white-50">0998 560 7748</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5 text-lg-end">
+            <a href="https://www.google.com/maps/place/El+Trio+Cafe/@10.9422915,122.6274114,17z/data=!3m1!4b1!4m22!1m15!4m14!1m6!1m2!1s0x33af19076eccfb15:0xd90942671736ca64!2sEl+Trio+Cafe,+Tirador+Ave,+Pototan,+5000+Iloilo!2m2!1d122.6299863!2d10.9422915!1m6!1m2!1s0x33af19076eccfb15:0xd90942671736ca64!2sEl+Trio+Cafe,+Tirador+Ave,+Pototan,+5000+Iloilo!2m2!1d122.6299863!2d10.9422915!3m5!1s0x33af19076eccfb15:0xd90942671736ca64!8m2!3d10.9422915!4d122.6299863!16s%2Fg%2F11plhxt8q9?entry=ttu&g_ep=EgoyMDI2MDMzMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn btn-brand">Open in Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <p class="mb-0"><strong>El Trio Cafe &amp; Kandingan</strong> • Pototan, Iloilo</p>
+      <p class="mb-0">Modern comfort dining with local flavor.</p>
+    </div>
+  </footer>
+
+  <div class="modal fade lightbox-modal" id="lightboxModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <img src="" alt="" id="lightboxImage" class="lightbox-image">
+          <p id="lightboxCaption" class="lightbox-caption mb-0"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script>
+    const menuItems = [
+      { name: "Beef Burger", img: "images/beef burger.jpg" },
+      { name: "Best Seller", img: "images/best seller.jpg" },
+      { name: "Calamares", img: "images/calamares.jpg" },
+      { name: "Chicken Preto", img: "images/checken preto.jpg" },
+      { name: "Chicharon Bulaklak", img: "images/chicharon bulaklak.jpg" },
+      { name: "Chicken Inasal", img: "images/chicken inasal.jpg" },
+      { name: "Chicken Skin", img: "images/chicken skin.jpg" },
+      { name: "Combo Meals", img: "images/combo meals.jpg" },
+      { name: "Crispy Crablets", img: "images/crispy crablets.jpg" },
+      { name: "Flavored Chicken", img: "images/flavored chicken.jpg" },
+      { name: "Kandingan", img: "images/kanding.jpg" },
+      { name: "Kare-Kare", img: "images/karekare.jpg" },
+      { name: "Lechon Kawali", img: "images/lechon kawali.jpg" },
+      { name: "Lumpiang Togue", img: "images/lumpiang togue.jpg" },
+      { name: "Nachos Fries", img: "images/nachos fries.jpg" },
+      { name: "Nachos", img: "images/nachos.jpg" },
+      { name: "Native Chicken", img: "images/native chicken.jpg" },
+      { name: "Potato Mojos", img: "images/potato mojos.jpg" },
+      { name: "Sinigang", img: "images/sinigang.jpg" },
+      { name: "Sisig", img: "images/sisig.jpg" },
+      { name: "Tuna Pesto", img: "images/tuna pesto solo.jpg" },
+      { name: "Tuna Sandwich", img: "images/tuna sandwich.jpg" },
+      { name: "Shrimp", img: "images/shrimp.jpg" },
+      { name: "Pusit", img: "images/pusit.jpg" }
+    ];
+
+    const galleryItems = [
+      { title: "Warm Dining Ambience", img: "images/warmingambiance.jpg", fallback: "images/hero.jpg" },
+      { title: "Child Friendly with playgrounds", img: "images/childfriendly.jpg", fallback: "images/best seller.jpg" },
+      { title: "A Feast Worth Sharing", img: "images/feast.jpg", fallback: "images/kanding.jpg" },
+      { title: "Event Ready Venue", img: "images/event.jpg", fallback: "images/hero.jpg" },
+      { title: "Group Dining Available", img: "images/group.jpg", fallback: "images/hero.jpg" },
+      { title: "Spacious Seating", img: "images/seating.jpg", fallback: "images/hero.jpg" }
+    ];
+
+    const menuGrid = document.getElementById("menuGrid");
+    const galleryGrid = document.getElementById("galleryGrid");
+    const lightboxModalEl = document.getElementById("lightboxModal");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    const lightboxModal = new bootstrap.Modal(lightboxModalEl);
+
+    function renderMenu() {
+      const menuMarkup = menuItems.map((item, index) => `
+        <div class="col-sm-6 col-lg-4 col-xl-3 fade-in" style="transition-delay: ${Math.min(index * 40, 240)}ms;">
+          <article class="card menu-card">
+            <div class="menu-image-wrapper">
+              <img
+                src="${item.img}"
+                alt="${item.name}"
+                class="lightbox-trigger"
+                data-lightbox-src="${item.img}"
+                data-lightbox-title="${item.name}"
+              >
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">${item.name}</h3>
+            </div>
+          </article>
+        </div>
+      `).join("");
+
+      menuGrid.innerHTML = menuMarkup;
+    }
+
+    function renderGallery() {
+      const galleryMarkup = galleryItems.map((item, index) => `
+        <div class="col-md-4 fade-in" style="transition-delay: ${index * 120}ms;">
+          <article class="card gallery-card">
+            <div class="gallery-image-wrapper">
+              <img
+                src="${item.img}"
+                alt="${item.title}"
+                class="lightbox-trigger"
+                data-fallback-src="${item.fallback}"
+                data-lightbox-src="${item.img}"
+                data-lightbox-title="${item.title}"
+              >
+            </div>
+            <div class="card-body py-3">
+              <h3 class="card-title">${item.title}</h3>
+            </div>
+          </article>
+        </div>
+      `).join("");
+
+      galleryGrid.innerHTML = galleryMarkup;
+    }
+
+    function applyImageFallbacks() {
+      document.querySelectorAll("img[data-fallback-src]").forEach((image) => {
+        image.addEventListener("error", function handleError() {
+          if (this.dataset.fallbackApplied === "true") {
+            return;
+          }
+          const fallbackSrc = this.dataset.fallbackSrc;
+          if (fallbackSrc) {
+            this.dataset.fallbackApplied = "true";
+            this.src = fallbackSrc;
+            this.dataset.lightboxSrc = fallbackSrc;
+          }
+        }, { once: true });
+      });
+    }
+
+    function openLightbox(source, title, altText) {
+      lightboxImage.src = source;
+      lightboxImage.alt = altText || title || "Expanded restaurant image";
+      lightboxCaption.textContent = title || "";
+      lightboxModal.show();
+    }
+
+    function setupLightbox() {
+      document.addEventListener("click", (event) => {
+        const trigger = event.target.closest(".lightbox-trigger");
+        if (!trigger) {
+          return;
+        }
+
+        const source = trigger.dataset.lightboxSrc || trigger.getAttribute("src");
+        const title = trigger.dataset.lightboxTitle || trigger.getAttribute("alt") || "";
+        const altText = trigger.getAttribute("alt") || title;
+        openLightbox(source, title, altText);
+      });
+
+      lightboxModalEl.addEventListener("hidden.bs.modal", () => {
+        lightboxImage.src = "";
+        lightboxImage.alt = "";
+        lightboxCaption.textContent = "";
+      });
+    }
+
+    function setupScrollSpy() {
+      const sections = document.querySelectorAll("section[id], header[id]");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      function updateActiveLink() {
+        const scrollPosition = window.scrollY + 120;
+        sections.forEach((section) => {
+          if (
+            scrollPosition >= section.offsetTop &&
+            scrollPosition < section.offsetTop + section.offsetHeight
+          ) {
+            const id = section.getAttribute("id");
+            navLinks.forEach((link) => {
+              link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+            });
+          }
+        });
+      }
+
+      updateActiveLink();
+      window.addEventListener("scroll", updateActiveLink);
+    }
+
+    function setupSmoothScroll() {
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", (event) => {
+          const targetId = anchor.getAttribute("href");
+          if (!targetId || targetId === "#") {
+            return;
+          }
+
+          const target = document.querySelector(targetId);
+          if (!target) {
+            return;
+          }
+
+          event.preventDefault();
+          const navCollapse = document.querySelector(".navbar-collapse.show");
+          if (navCollapse) {
+            bootstrap.Collapse.getOrCreateInstance(navCollapse).hide();
+          }
+
+          window.scrollTo({
+            top: target.offsetTop - 72,
+            behavior: "smooth"
+          });
+        });
+      });
+    }
+
+    function setupFadeIn() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll(".fade-in").forEach((element) => observer.observe(element));
+    }
+
+    renderMenu();
+    renderGallery();
+    applyImageFallbacks();
+    setupLightbox();
+    setupSmoothScroll();
+    setupScrollSpy();
+    setupFadeIn();
+  </script>
+</body>
+</html>
