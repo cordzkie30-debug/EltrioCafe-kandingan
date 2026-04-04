@@ -61,6 +61,10 @@
       transition: background 0.3s ease, padding 0.3s ease;
     }
 
+    body.modal-open .navbar {
+      padding-right: 0 !important;
+    }
+
     .navbar-brand {
       display: flex;
       align-items: center;
@@ -336,6 +340,17 @@
       height: 320px;
     }
 
+    .menu-pages {
+      margin-top: 4rem;
+    }
+
+    .menu-pages-card img {
+      height: auto;
+      aspect-ratio: 3 / 4.2;
+      object-fit: cover;
+      object-position: top center;
+    }
+
     .contact-card {
       padding: 2.5rem;
       background:
@@ -442,12 +457,17 @@
     }
 
     .fade-in {
+      opacity: 1;
+      transform: none;
+    }
+
+    .js-animations .fade-in {
       opacity: 0;
       transform: translateY(32px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
-    .fade-in.show {
+    .js-animations .fade-in.show {
       opacity: 1;
       transform: translateY(0);
     }
@@ -625,6 +645,25 @@
         <p class="section-subtitle">A curated lineup of best sellers, grilled favorites, and signature comfort food made to satisfy every table.</p>
       </div>
       <div class="row g-4" id="menuGrid"></div>
+      <div class="menu-pages">
+        <div class="text-center mt-5 mb-4 fade-in">
+          <div class="eyebrow">Full Menu</div>
+          <h3 class="section-title fs-2 mb-3">Desserts &amp; Drinks Menu</h3>
+          <p class="section-subtitle">Browse the complete menu pages and tap any image to view it larger.</p>
+        </div>
+        <div class="row g-4" id="menuPagesGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="catering">
+    <div class="container">
+      <div class="text-center mb-5 fade-in">
+        <div class="eyebrow">Catering</div>
+        <h2 class="section-title">El Trio Catering Services</h2>
+        <p class="section-subtitle">Planning a celebration or special event? Browse our catering service images and tap to view them larger.</p>
+      </div>
+      <div class="row g-4" id="cateringGrid"></div>
     </div>
   </section>
 
@@ -758,7 +797,7 @@
       { name: "Crispy Crablets", img: "images/crispy crablets.jpg" },
       { name: "Flavored Chicken", img: "images/flavored chicken.jpg" },
       { name: "Kandingan", img: "images/kanding.jpg" },
-      { name: "Kare-Kare", img: "images/karekare.jpg" },
+      { name: "Fish Fillet", img: "images/fish fillet.jpg" },
       { name: "Lechon Kawali", img: "images/lechon kawali.jpg" },
       { name: "Lumpiang Togue", img: "images/lumpiang togue.jpg" },
       { name: "Nachos Fries", img: "images/nachos fries.jpg" },
@@ -766,7 +805,7 @@
       { name: "Native Chicken", img: "images/native chicken.jpg" },
       { name: "Potato Mojos", img: "images/potato mojos.jpg" },
       { name: "Sinigang", img: "images/sinigang.jpg" },
-      { name: "Sisig", img: "images/sisig.jpg" },
+      { name: "Mixed Seafoods", img: "images/mixedseafoods.jpg" },
       { name: "Tuna Pesto", img: "images/tuna pesto solo.jpg" },
       { name: "Tuna Sandwich", img: "images/tuna sandwich.jpg" },
       { name: "Shrimp", img: "images/shrimp.jpg" },
@@ -782,12 +821,29 @@
       { title: "Spacious Seating", img: "images/seating.jpg", fallback: "images/hero.jpg" }
     ];
 
+    const menuPages = [
+      { title: "Appetizers & Kanding Specials", img: "images/menu1.jpg" },
+      { title: "Chicken, Pork & Native Favorites", img: "images/menu2.jpg" },
+      { title: "Beef, Seafood, Vegetables & Rice", img: "images/menu3.jpg" },
+      { title: "Desserts & Drinks Menu", img: "images/menu4.jpg" },
+      { title: "More Menu Specials", img: "images/menu5.jpg" }
+    ];
+
+    const cateringItems = [
+      { title: "El Trio Catering Services", img: "images/catering1.jpg" },
+      { title: "Catering Packages & Setups", img: "images/catering2.jpg" }
+    ];
+
     const menuGrid = document.getElementById("menuGrid");
+    const menuPagesGrid = document.getElementById("menuPagesGrid");
+    const cateringGrid = document.getElementById("cateringGrid");
     const galleryGrid = document.getElementById("galleryGrid");
     const lightboxModalEl = document.getElementById("lightboxModal");
     const lightboxImage = document.getElementById("lightboxImage");
     const lightboxCaption = document.getElementById("lightboxCaption");
-    const lightboxModal = new bootstrap.Modal(lightboxModalEl);
+    const lightboxModal = window.bootstrap && lightboxModalEl
+      ? new bootstrap.Modal(lightboxModalEl)
+      : null;
 
     function renderMenu() {
       const menuMarkup = menuItems.map((item, index) => `
@@ -810,6 +866,52 @@
       `).join("");
 
       menuGrid.innerHTML = menuMarkup;
+    }
+
+    function renderMenuPages() {
+      const menuPagesMarkup = menuPages.map((item, index) => `
+        <div class="col-md-6 col-xl-4 fade-in" style="transition-delay: ${Math.min(index * 80, 320)}ms;">
+          <article class="card gallery-card menu-pages-card">
+            <div class="gallery-image-wrapper">
+              <img
+                src="${item.img}"
+                alt="${item.title}"
+                class="lightbox-trigger"
+                data-lightbox-src="${item.img}"
+                data-lightbox-title="${item.title}"
+              >
+            </div>
+            <div class="card-body py-3">
+              <h3 class="card-title">${item.title}</h3>
+            </div>
+          </article>
+        </div>
+      `).join("");
+
+      menuPagesGrid.innerHTML = menuPagesMarkup;
+    }
+
+    function renderCatering() {
+      const cateringMarkup = cateringItems.map((item, index) => `
+        <div class="col-md-6 fade-in" style="transition-delay: ${Math.min(index * 120, 240)}ms;">
+          <article class="card gallery-card menu-pages-card">
+            <div class="gallery-image-wrapper">
+              <img
+                src="${item.img}"
+                alt="${item.title}"
+                class="lightbox-trigger"
+                data-lightbox-src="${item.img}"
+                data-lightbox-title="${item.title}"
+              >
+            </div>
+            <div class="card-body py-3">
+              <h3 class="card-title">${item.title}</h3>
+            </div>
+          </article>
+        </div>
+      `).join("");
+
+      cateringGrid.innerHTML = cateringMarkup;
     }
 
     function renderGallery() {
@@ -853,6 +955,9 @@
     }
 
     function openLightbox(source, title, altText) {
+      if (!lightboxModal) {
+        return;
+      }
       lightboxImage.src = source;
       lightboxImage.alt = altText || title || "Expanded restaurant image";
       lightboxCaption.textContent = title || "";
@@ -872,11 +977,13 @@
         openLightbox(source, title, altText);
       });
 
-      lightboxModalEl.addEventListener("hidden.bs.modal", () => {
-        lightboxImage.src = "";
-        lightboxImage.alt = "";
-        lightboxCaption.textContent = "";
-      });
+      if (lightboxModalEl && lightboxModal) {
+        lightboxModalEl.addEventListener("hidden.bs.modal", () => {
+          lightboxImage.src = "";
+          lightboxImage.alt = "";
+          lightboxCaption.textContent = "";
+        });
+      }
     }
 
     function setupScrollSpy() {
@@ -918,7 +1025,9 @@
           event.preventDefault();
           const navCollapse = document.querySelector(".navbar-collapse.show");
           if (navCollapse) {
-            bootstrap.Collapse.getOrCreateInstance(navCollapse).hide();
+            if (window.bootstrap) {
+              bootstrap.Collapse.getOrCreateInstance(navCollapse).hide();
+            }
           }
 
           window.scrollTo({
@@ -930,6 +1039,13 @@
     }
 
     function setupFadeIn() {
+      document.body.classList.add("js-animations");
+
+      if (!("IntersectionObserver" in window)) {
+        document.querySelectorAll(".fade-in").forEach((element) => element.classList.add("show"));
+        return;
+      }
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -943,6 +1059,8 @@
     }
 
     renderMenu();
+    renderMenuPages();
+    renderCatering();
     renderGallery();
     applyImageFallbacks();
     setupLightbox();
